@@ -1,0 +1,17 @@
+{
+  "name": "node-proxy-antizapret",
+  "version": "0.0.1",
+  "description": "A proxy that uses an Antizapret's PAC script",
+  "main": "index.js",
+  "author": "Konnogatto",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "debug": "^4.1.1",
+    "get-uri": "^3.0.2",
+    "node-cache": "^5.1.1",
+    "pac-resolver": "^4.1.0",
+    "proxy-chain": "^0.4.5",
+    "raw-body": "^2.4.1"
+  }
+}
