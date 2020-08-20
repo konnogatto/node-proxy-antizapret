@@ -8,10 +8,12 @@ const server = new ProxyChain.Server({
     verbose: false,
     prepareRequestFunction: async ({ request, port, isHttp }) => {
         const cache = getCache()
+        console.log('Got url: ' + request.url)
         let proxyConnection = cache.get(request.url)
         if (proxyConnection === undefined) {
             const address = fixUrl(request.url)
             const proxyUrl = await getProxyAddress(address)
+            console.log('Got proxy url:' + proxyUrl)
             debug('Using address ' + proxyUrl + ' for url ' + request.url)
             proxyConnection = {
                 requestAuthentication: false,
@@ -19,6 +21,8 @@ const server = new ProxyChain.Server({
                 failMsg: 'Bad username or password, please try again.',
             }
             cache.set(request.url, proxyConnection, 60 * 60 * 24)
+        } else {
+            console.log('Reusing connection')
         }
         return proxyConnection
     },
