@@ -35,7 +35,6 @@ server.listen(() => {
 // Emitted when HTTP connection is closed
 server.on('connectionClosed', ({ connectionId, stats }) => {
     console.log(`Connection ${connectionId} closed`);
-    console.dir(stats);
 });
 
 // Emitted when HTTP request fails
